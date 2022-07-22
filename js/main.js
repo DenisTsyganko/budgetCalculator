@@ -66,18 +66,11 @@ startBtn.addEventListener('click',function(){
     }
 
     time = prompt("Введите дату в формате YYYY-MM-DD");
-    if(time.length !== 10){ 
+    let reg = /\d\d\d\d-\d\d-\d\d/g;
+    if (!time.match(reg)){
         alert("Введите корректные данные!");
         return;
     }
-    let timeValues = [+time.slice(0,4),+time.slice(5,7),+time.slice(8)];
-    for (let element of timeValues){
-        if (isNaN(element)){
-            alert("Введите корректные данные!");
-            return;
-            }   
-        }
-
     expensesBtn.disabled = false;
     optExpensesBtn.disabled = false;
     savingsCheckbox.disabled = false;
